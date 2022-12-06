@@ -17,7 +17,7 @@ class ParameterizedTest(val inputData: String, val expectedResult: Boolean) {
 
     companion object{
         @JvmStatic
-        @Parameterized.Parameters
+        @Parameterized.Parameters(name="{index}:{0} is Palindrome-{1}")
         fun data():List<Array<Any>>{
             return listOf(
                 arrayOf("Hello",false),
