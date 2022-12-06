@@ -8,31 +8,29 @@ import org.junit.Test
 
 class UtilsFunctionsTest {
 
+    lateinit var utilsFunctions_inst: UtilsFunctions;
+
+    @Before
+    fun setup(){
+        utilsFunctions_inst=UtilsFunctions();
+        println("Before Test Case")
+    }
+
+    @After
+    fun tearDown(){
+        println("After Test")
+    }
+
     @Test
     fun `is_Input_Data_palindrome`() {
-        /**
-         * 1)Arrrange
-         * 2)Act
-         * 3)Assert
-         */
-        //Arrange
-        var utilClass = UtilsFunctions()
-        //Act
-        var result = utilClass.isPalinDrome("Hellow")
+        var result = utilsFunctions_inst.isPalinDrome("Hellow")
         assertEquals(false, result)
     }
 
     @Test
     fun `not_palindrome`() {
-        /**
-         * 1)Arrrange
-         * 2)Act
-         * 3)Assert
-         */
-        //Arrange
-        var utilClass = UtilsFunctions()
         //Act
-        var result = utilClass.isPalinDrome("Level")
+        var result = utilsFunctions_inst.isPalinDrome("Level")
         assertEquals(true, result)
     }
 }
