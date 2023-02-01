@@ -1,7 +1,11 @@
 package com.example.unittesting
 
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.test.setMain
 import org.junit.Assert.*
 
 import org.junit.After
@@ -10,12 +14,16 @@ import org.junit.Test
 
 class UtilTest {
 
+    private val dispatcher= StandardTestDispatcher()
+
     @Before
     fun setUp() {
+        Dispatchers.setMain(dispatcher)
     }
 
     @After
     fun tearDown() {
+        Dispatchers.resetMain()
     }
 
     @Test
@@ -43,3 +51,10 @@ class UtilTest {
         }
     }
 }
+
+
+/**
+ * https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-standard-test-dispatcher.html
+ * Notes:- In the application if there is a main dispacther used anywhere ,Don t change it.
+ * when ever there is a request for the Dispatcher use this Dispatcher.
+ */
