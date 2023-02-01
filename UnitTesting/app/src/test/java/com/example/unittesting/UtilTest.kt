@@ -30,4 +30,16 @@ class UtilTest {
             sut.getUserName()
         }
     }
+
+    @Test
+    fun getUser(){
+        /**
+         * Ater running the Test case.
+         * Error :- Module with the Main dispatcher had failed to initialize. For tests Dispatchers.setMain from kotlinx-coroutines-test module can be used
+         */
+        val sut=Util()
+        runTest {
+            sut.getuser()
+        }
+    }
 }
