@@ -21,4 +21,12 @@ class Util(val dispatcher: CoroutineDispatcher) {
         }
         return "Vinay Lakshmi Mandira \n UK London"
     }
+
+    var globalarg=false
+    suspend fun coroutineExecuteCheck(){
+        CoroutineScope(dispatcher).launch{
+            delay(1000)
+            globalarg=true
+        }
+    }
 }
